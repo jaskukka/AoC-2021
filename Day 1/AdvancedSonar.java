@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
 
-public class Sonar {
+public class AdvancedSonar {
     public static ArrayList<Integer> readFile() {
         ArrayList<Integer> inputList = new ArrayList<Integer>();
         File file = new File("input.txt");
@@ -26,9 +26,16 @@ public class Sonar {
 
     public static void main(String[] args) {
         ArrayList<Integer> input = readFile();
+        System.out.println("input size: " + input.size());
         int increased = 0;
-        for (int i = 1; i < input.size(); i++) {
-            if (input.get(i) > input.get(i-1)) {
+        int firstWindow;
+        int secondWindow;
+
+        for (int i = 2; i < input.size()-1; i++) {
+            firstWindow = input.get(i-2) + input.get(i-1) + input.get(i);
+            secondWindow = input.get(i-1) + input.get(i) + input.get(i+1);
+            System.out.println("first: " + firstWindow + ", second: " + secondWindow);
+            if (secondWindow > firstWindow) {
                 increased++;
             }
         }

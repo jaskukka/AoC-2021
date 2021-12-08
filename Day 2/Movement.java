@@ -29,18 +29,19 @@ public class Movement {
         
         int horizontal = 0;
         int vertical = 0;
-        String[] splitInput;
 
         for (int i = 0; i < input.size(); i++) {
-            splitInput = input.get(i).split(" ");
-            if (splitInput[0].equals("forward")) {
-                horizontal += Integer.parseInt(splitInput[1]);
+            String command = input.get(i).split(" ")[0];
+            int amount = Integer.parseInt(input.get(i).split(" ")[1]);
+            
+            if (command.equals("forward")) {
+                horizontal += amount;
             }
-            else if (splitInput[0].equals("down")) {
-                vertical += Integer.parseInt(splitInput[1]);
+            else if (command.equals("down")) {
+                vertical += amount;
             }
-            else if (splitInput[0].equals("up")) {
-                vertical -= Integer.parseInt(splitInput[1]);
+            else if (command.equals("up")) {
+                vertical -= amount;
             }
         }
 

@@ -12,3 +12,6 @@
 *.zip
 *.tar.gz
 *.rar
+
+# Please ingore my test file
+Test.java

@@ -25,7 +25,6 @@ public class Diagnostics {
 
     public static void main(String[] args) {
         LinkedList<String> input = readFile();
-        System.out.println(input.size() + " " + input.get(0));
 
         String gamma = "";
         String epsilon = "";
@@ -34,8 +33,29 @@ public class Diagnostics {
             int zeroes = 0;
             int ones = 0;
             for (int n = 0; n < input.size(); n++) {
-                
+                if (input.get(n).charAt(i) == '0') {
+                    zeroes++;
+                }
+                else {
+                    ones++;
+                }
+            }
+
+            if (zeroes < ones) {
+                gamma += "1";
+                epsilon += "0";
+            }
+            else {
+                gamma += "0";
+                epsilon += "1";
             }
         }
+
+        System.out.println(gamma);
+        System.out.println(epsilon);
+        int gammaInt = Integer.parseInt(gamma,2);
+        int epsilonInt = Integer.parseInt(epsilon,2);
+        System.out.println("power consumption = " + gammaInt*epsilonInt);
+
     }
 }
